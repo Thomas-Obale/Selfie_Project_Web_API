@@ -13,6 +13,7 @@
 
 ## Setting up the server
 * run 'php -S localhost:8000 -t public'
-  *Your server is now running on localhost:8000, you can check this on the browser
+
+Your server is now running on localhost:8000, you can check this on the browser
 
 Check routes/web.php for all HTTP requests
