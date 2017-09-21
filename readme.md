@@ -1,21 +1,18 @@
-# Lumen PHP Framework
+# Instructions
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+* Create a new directory
+* Open Command Line and Clone the source code using 'git clone https://github.com/Thomas-Obale/Selfie_Project_Web_API.git'
+* Navigate to the project root directory
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Database Setup
 
-## Official Documentation
+* rename .env.example to .env in the root directory
+* Fill in database credentials
+* run 'php artisan' to see all avaliable commands
+  * run 'php artisan migrate' to create all the database tables
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+## Setting up the server
+* run 'php -S localhost:8000 -t public'
+  *Your server is now running on localhost:8000, you can check this on the browser
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Check routes/web.php for all HTTP requests
