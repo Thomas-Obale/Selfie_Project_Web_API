@@ -1187,16 +1187,16 @@
         },
         {
             "name": "laravel/lumen-framework",
-            "version": "v5.5.0",
+            "version": "v5.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/lumen-framework.git",
-                "reference": "ca3b19caee27c01876d7263a00951f7b878bffe5"
+                "reference": "d701d463925394ca2ee46e34cced55330cca7aea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/ca3b19caee27c01876d7263a00951f7b878bffe5",
-                "reference": "ca3b19caee27c01876d7263a00951f7b878bffe5",
+                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/d701d463925394ca2ee46e34cced55330cca7aea",
+                "reference": "d701d463925394ca2ee46e34cced55330cca7aea",
                 "shasum": ""
             },
             "require": {
@@ -1266,7 +1266,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2017-09-04T17:40:09+00:00"
+            "time": "2017-09-25T13:08:00+00:00"
         },
         {
             "name": "league/flysystem",
@@ -3132,16 +3132,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.3.0",
+            "version": "6.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9501bab711403a1ab5b8378a8adb4ec3db3debdb"
+                "reference": "c0ff817b36a827e64bf5f57bc72278150cf30a77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9501bab711403a1ab5b8378a8adb4ec3db3debdb",
-                "reference": "9501bab711403a1ab5b8378a8adb4ec3db3debdb",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c0ff817b36a827e64bf5f57bc72278150cf30a77",
+                "reference": "c0ff817b36a827e64bf5f57bc72278150cf30a77",
                 "shasum": ""
             },
             "require": {
@@ -3212,7 +3212,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-04T05:20:39+00:00"
+            "time": "2017-09-24T07:25:54+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

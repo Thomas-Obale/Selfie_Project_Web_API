@@ -40,7 +40,7 @@ class ImagesController extends Controller {
      */
     public function createImage(Request $request, $id) {
 
-        if ($request->file('url')->isValid()) {
+       if ($request->file('url')->isValid()) {
 
             // Set the name of the image to be stored
             $picName = $request->file('url')->getClientOriginalName();
@@ -55,12 +55,14 @@ class ImagesController extends Controller {
             $image->url = 'images' . DIRECTORY_SEPARATOR . $picName;
             $image->project_id = $id;
             $image->save();
-
+		
             // Return a confirmation message
-            return response()->json('Done');
-        } else {
+           return response()->json('Done');
+
+       } else {
             return response()->json('No Valid');
-        }
+            //return response()->json($request);
+       }
     }
 
     /**

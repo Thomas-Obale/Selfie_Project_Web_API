@@ -21,15 +21,15 @@ $router->group(['prefix' => 'selfie/v1'], function($router)
 	// Requests for the project
 	// {id} is id of the project which the user must type into the url to execute the 
 	// function given in the second paramater
-	$router->get('project','ProjectsController@index');
-	$router->get('project/{id}','ProjectsController@getProject');
-	$router->post('project','ProjectsController@createProject');
-	$router->put('project/{id}','ProjectsController@updateProject');
-	$router->delete('project/{id}','ProjectsController@deleteProject');
+	$router->get('projects','ProjectsController@index');
+	$router->get('projects/{id}','ProjectsController@getProject');
+	$router->post('projects','ProjectsController@createProject');
+	$router->put('projects/{id}','ProjectsController@updateProject');
+	$router->delete('projects/{id}','ProjectsController@deleteProject');
 
 	// Request for images
 	// {id} is id of the image which the user must type into the url to execute the 
 	// function given in the second paramater
-	$router->get('project/{id}/images','ImagesController@index');
+	$router->get('projects/{id}/images','ImagesController@index');
 	$router->post('{id}/image','ImagesController@createImage'); // Id for project
 });
