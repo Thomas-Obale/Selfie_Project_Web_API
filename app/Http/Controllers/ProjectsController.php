@@ -35,13 +35,14 @@ class ProjectsController extends Controller
     }
 
     public function updateProject(Request $request,$id){
-       
+
         // Change details of the project and updated the record in the database
         $Project  = Project::find($id);
-        $Project->title = $request->input('name');
-        $Book->save();
+        $Project->name = $request->input('name');
+        $Project->queue = $request->input('queue');
+        $Project->save();
   
-        return response()->json($Book);
+        return response()->json($Project);
     }
 
 }

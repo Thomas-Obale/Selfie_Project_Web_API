@@ -32,4 +32,9 @@ $router->group(['prefix' => 'selfie/v1'], function($router)
 	// function given in the second paramater
 	$router->get('projects/{id}/images','ImagesController@index');
 	$router->post('{id}/image','ImagesController@createImage'); // Id for project
+
+
+	// Queue Handling
+	$router->get('photoscan_queues', 'QueueController@getIndex');
+	$router->put('photoscan_queues/update/{id}', 'QueueController@updateProjectQueue');
 });
