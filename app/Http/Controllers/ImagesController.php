@@ -57,11 +57,11 @@ class ImagesController extends Controller {
             $image->save();
 		
             // Return a confirmation message
-           return response()->json('Done');
+           return response()->json('Image has been added successfully');
 
        } else {
-            return response()->json('No Valid');
-            //return response()->json($request);
+            // Return friendly error message
+            return response()->json('Image Sent is not Valid');
        }
     }
 
@@ -78,8 +78,7 @@ class ImagesController extends Controller {
 
         return response()->json('deleted');
     }
-
-
+    
     public function updateImage(Request $request, $id) {
 
         // Change field data in the database and save changes

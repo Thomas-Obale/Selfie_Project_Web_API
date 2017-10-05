@@ -13,7 +13,7 @@
 
 $router->get('/', function () use ($router) {
     // return $router->app->version();
-    return "Lumen RESTFUL API by Thomas Obale";
+    return view('home');
 });
 
 $router->group(['prefix' => 'selfie/v1'], function($router)
