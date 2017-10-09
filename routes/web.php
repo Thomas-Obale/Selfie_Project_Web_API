@@ -18,23 +18,51 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'selfie/v1'], function($router)
 {
-	// Requests for the project
-	// {id} is id of the project which the user must type into the url to execute the 
-	// function given in the second paramater
+	/*
+	|--------------------------------------------------------------------------
+	| Projects related routes
+	|--------------------------------------------------------------------------
+	|
+	| Create, Read, Update and Delete routes for projects
+	|
+	*/
+
+	// Display all projects saved in the database
 	$router->get('projects','ProjectsController@index');
-	$router->get('projects/{id}','ProjectsController@getProject');
+
+	// Display the details of one specific project
+	$router->get('projects/{project_ID}','ProjectsController@getProject');
+
+	// Create a new project
 	$router->post('projects','ProjectsController@createProject');
-	$router->put('projects/{id}','ProjectsController@updateProject');
-	$router->delete('projects/{id}','ProjectsController@deleteProject');
 
-	// Request for images
-	// {id} is id of the image which the user must type into the url to execute the 
-	// function given in the second paramater
-	$router->get('projects/{id}/images','ImagesController@index');
-	$router->post('{id}/image','ImagesController@createImage'); // Id for project
+	// Update project details
+	$router->put('projects/{project_ID}','ProjectsController@updateProject');
+
+	// Delete a specific project by ID
+	$router->delete('projects/{project_ID}','ProjectsController@deleteProject');
 
 
-	// Queue Handling
+
+	/*
+	|--------------------------------------------------------------------------
+	| Images and PhotoScan related routes
+	|--------------------------------------------------------------------------
+	|
+	| Registration of all routes related to image processing and queues for
+	| Agisoft model processing
+	|
+	*/
+	
+	// Get all the images for a particular project
+	$router->get('projects/{project_ID}/images','ImagesController@index');
+
+	// Include a new image
+	$router->post('{project_ID}/image','ImagesController@createImage'); // Id for project
+
+	// All projects registered to be processes by Agisoft Photoscan
 	$router->get('photoscan_queues', 'QueueController@getIndex');
-	$router->put('photoscan_queues/update/{id}', 'QueueController@updateProjectQueue');
+
+	// Upated the queuing status
+	$router->put('photoscan_queues/update/{project_ID}', 'QueueController@updateProjectQueue');
 });

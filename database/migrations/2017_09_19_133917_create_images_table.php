@@ -16,6 +16,7 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('url');
+            $table->enum('category', ['normal', 'mask']);
             $table->integer('project_id')->unsigned();
             $table->timestamps();
 
