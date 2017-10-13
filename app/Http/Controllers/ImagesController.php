@@ -48,11 +48,13 @@ class ImagesController extends Controller {
 
             // Save to the image directory in the public folder
             $destinationPath = public_path('images' . DIRECTORY_SEPARATOR);
-            $request->file('url')->move($destinationPath, $picName);
+            $filename = md5(uniqid(rand(), true)) . '_' . $picName;
+            
+            $request->file('url')->move($destinationPath, $filename);
 
             // Save image record to the database
             $image = new Image();
-            $image->url = 'images' . DIRECTORY_SEPARATOR . $picName;
+            $image->url = 'images' . DIRECTORY_SEPARATOR . $filename;
             $image->category = $request->input('category');
             $image->project_id = $project_id;
             $image->save();

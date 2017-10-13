@@ -16,7 +16,7 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->enum('queue', ['register', 'deregister'])->default('deregister');
+            $table->enum('status', ['empty', 'has_images', 'ready_for_processing', 'processed'])->default('empty');
             $table->timestamps();
         });
     }

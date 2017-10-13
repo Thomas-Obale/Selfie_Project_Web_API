@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\Image as ProjectImages;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -44,7 +45,7 @@ class ProjectsController extends Controller {
     }
 
     /**
-     * Delete project from database
+     * Delete project from database including images
      * 
      * @param Integer $project_id ID of the project to be deleted
      * @return JSON Formatted data
@@ -52,8 +53,42 @@ class ProjectsController extends Controller {
     public function deleteProject($project_id) {
         // Remove a project from the database
         $Project = Project::find($project_id);
-        $Project->delete();
-        return response()->json('deleted', 200, ['Content-type' => 'application/json; charset=utf-8'], JSON_PRETTY_PRINT);
+
+        if ($Project !== null) {
+
+            // Delete ALl images associated with the project in the public directory
+            $removedImages = $this->removeImages($Project->id);
+
+            // Remove images from the database
+            $Project->images()->delete();
+
+            // Remove the project
+            $Project->delete();
+            return response()->json('Project has been deleted successfuly, ' . $removedImages, 200, ['Content-type' => 'application/json; charset=utf-8'], JSON_PRETTY_PRINT);
+        }
+        return response()->json('No Project Was found', 200, ['Content-type' => 'application/json; charset=utf-8'], JSON_PRETTY_PRINT);
+    }
+
+    /**
+     * Remove Images for a project
+     * 
+     * @param Integer $project_id Project ID
+     * @return String Message
+     */
+    public function removeImages($project_id) {
+        $images = ProjectImages::where('project_id', '=', $project_id)->get();
+
+        if ($images != null) {
+            $counter = 0;
+            foreach ($images as $image) {
+                unlink(str_replace('\\', '/', public_path($image['url'])));
+                $counter++;
+            }
+
+            return $counter . ' images has been removed';
+        } else {
+            return 'No images was removed';
+        }
     }
 
     /**
