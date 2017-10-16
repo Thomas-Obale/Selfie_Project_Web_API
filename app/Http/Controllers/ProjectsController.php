@@ -11,7 +11,7 @@ class ProjectsController extends Controller {
 
     /**
      * Display all existing projects into a JSON formatted object
-     * 
+     *
      * @return JSON formatted Data
      */
     public function index() {
@@ -22,7 +22,7 @@ class ProjectsController extends Controller {
 
     /**
      * Display all information about a specific project into a JSON formatted object
-     * 
+     *
      * @param type $project_id ID of existing project
      * @return JSON Formatted data
      */
@@ -34,19 +34,22 @@ class ProjectsController extends Controller {
 
     /**
      * Create a new project with database credentials
-     * 
+     *
      * @param Request $request HTTP Data
      * @return JSON Formatted data
      */
     public function createProject(Request $request) {
+
         // Create a new project
         $Project = Project::create($request->all());
+
+        // Display Created Project
         return response()->json($Project, 200, ['Content-type' => 'application/json; charset=utf-8'], JSON_PRETTY_PRINT);
     }
 
     /**
      * Delete project from database including images
-     * 
+     *
      * @param Integer $project_id ID of the project to be deleted
      * @return JSON Formatted data
      */
@@ -71,7 +74,7 @@ class ProjectsController extends Controller {
 
     /**
      * Remove Images for a project
-     * 
+     *
      * @param Integer $project_id Project ID
      * @return String Message
      */
@@ -93,7 +96,7 @@ class ProjectsController extends Controller {
 
     /**
      * Update project details
-     * 
+     *
      * @param Request $request
      * @param Integer $project_id ID of the project to be updated
      * @return JSON Formatted data

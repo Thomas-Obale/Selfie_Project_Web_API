@@ -10,7 +10,7 @@ class ImagesController extends Controller {
 
     /**
      * Get all which belongs to the Project ID
-     * 
+     *
      * @param type $project_id ID on an existing project
      * @return JSON
      */
@@ -22,8 +22,8 @@ class ImagesController extends Controller {
 
     /**
      * Get information for a particular image
-     * @param type $project_id ID on an existing project
-     * @return JSON
+     * @param Integer $project_id ID on an existing project
+     * @return JSON Message
      */
     public function getImage($project_id) {
 
@@ -33,8 +33,8 @@ class ImagesController extends Controller {
     }
 
     /**
-     * Save image to the local directory and store the url into the database 
-     * 
+     * Save image to the local directory and store the url into the database
+     *
      * @param Request $request input data
      * @param Integer $project_id project id which the image should belong to
      * @return JSON
@@ -49,13 +49,13 @@ class ImagesController extends Controller {
             // Save to the image directory in the public folder
             $destinationPath = public_path('images' . DIRECTORY_SEPARATOR);
             $filename = md5(uniqid(rand(), true)) . '_' . $picName;
-            
+
             $request->file('url')->move($destinationPath, $filename);
 
             // Save image record to the database
             $image = new Image();
             $image->url = 'images' . DIRECTORY_SEPARATOR . $filename;
-            $image->category = $request->input('category');
+            $image->type = $request->input('type');
             $image->project_id = $project_id;
             $image->save();
 

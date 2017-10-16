@@ -61,8 +61,8 @@ $router->group(['prefix' => 'selfie/v1'], function($router)
 	$router->post('{project_ID}/image','ImagesController@createImage'); // Id for project
 
 	// All projects registered to be processes by Agisoft Photoscan
-	$router->get('photoscan_queues', 'QueueController@getIndex');
+	$router->get('photoscan_queues', 'StatusController@index');
 
 	// Upated the queuing status
-	$router->put('photoscan_queues/update/{project_ID}', 'QueueController@updateProjectQueue');
+	$router->put('photoscan_queues/update/{project_ID}', 'StatusController@updateStatus');
 });
