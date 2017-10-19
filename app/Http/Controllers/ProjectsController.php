@@ -106,7 +106,7 @@ class ProjectsController extends Controller {
         // Change details of the project and updated the record in the database
         $Project = Project::find($project_id);
         $Project->name = $request->input('name');
-        $Project->queue = $request->input('queue');
+        $Project->queue = $request->input('status');
         $Project->save();
 
         return response()->json($Project, 200, ['Content-type' => 'application/json; charset=utf-8'], JSON_PRETTY_PRINT);

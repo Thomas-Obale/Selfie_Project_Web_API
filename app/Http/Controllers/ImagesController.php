@@ -37,7 +37,7 @@ class ImagesController extends Controller {
      *
      * @param Request $request input data
      * @param Integer $project_id project id which the image should belong to
-     * @return JSON
+     * @return JSON Success or failure message
      */
     public function createImage(Request $request, $project_id) {
 

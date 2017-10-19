@@ -29,7 +29,7 @@ class StatusController extends Controller {
 
         // Change details of the project and updated the record in the database
         $Project = Project::find($project_id);
-        $Project->queue = $request->input('status');
+        $Project->status = $request->input('status');
         $Project->save();
 
         return response()->json($Project, 200, ['Content-type' => 'application/json; charset=utf-8'], JSON_PRETTY_PRINT);
