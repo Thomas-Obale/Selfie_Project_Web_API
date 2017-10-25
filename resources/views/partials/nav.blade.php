@@ -1,12 +1,9 @@
 <li class="nav-item">
-  <a class="nav-link active-s" href="#">Lumen<span class="sr-only">(current)</span></a>
+  <a class="nav-link active-s" href="{{url('projects')}}">Projects</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link active-s" href="#">Projects</a>
+  <a class="nav-link" href="{{url('project_images')}}">Images</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="#">Images</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="#">PhotoScan</a>
+  <a class="nav-link" href="{{url('photoscan')}}">PhotoScan</a>
 </li>
