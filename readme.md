@@ -4,7 +4,7 @@
 * PHP 7.0+
 * MySQL
 
-# Getting started
+### Getting started
 
 * Create a new directory
 * Open Command Line and Clone the source code using 'git clone https://github.com/Thomas-Obale/Selfie_Project_Web_API.git'
